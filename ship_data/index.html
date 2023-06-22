@@ -1,0 +1,114 @@
+<!--Scripts-->
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SSY Dry FFA freight summary</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
+
+	</head>
+	<body>
+		<body>
+			<div id="header"><h2>SSY Dry FFA Freight Summary </h2></div>
+			
+			<div id="wrap">
+				<div id="window1" class="window" >
+					<h3>Window 1</h3>
+					<script>
+						Highcharts.getJSON('https://www.ssyreports.com/api/ExampleEodCapeIndex/5JkSkCSaRXJdgxB4/20230605', function(data_graph) {
+						var seriesData = [];
+					
+						for (var i = 0; i < data_graph.length; i++) {
+						seriesData.push([
+							new Date(data_graph[i].priceDate).getTime(),
+							data_graph[i].price
+						]);
+						}
+					
+						// Create the chart
+						Highcharts.stockChart('window1', {
+					
+						rangeSelector: {
+							selected: 1
+						},
+					
+						title: {
+							text: 'Cape Index prices over the past year'
+						},
+					
+						series: [{
+							name: 'price',
+							data: seriesData,
+							type: 'spline',
+							tooltip: {
+							valueDecimals: 2
+							}
+						}]
+						});
+					});
+
+					</script>
+				</div>
+				
+				<div id="window2" class="window">
+					
+					
+					<div id="pane1" class="pane">
+						
+						<div id="scrollable">
+							<h3 class="window-banner">Report</h3><br>
+
+							<button onclick = clickFunction()>Submit</button>
+							<label for="from">Choose date</label>
+							<input type="date" id="from">
+							<script type = "text/javascript" src = assets/main.js></script>
+
+							<ul id = com></ul>			
+							
+
+						</div>
+					</div>
+					
+					<div id="pane2" class="pane">
+						<div id="scrollable">
+							<h3>Table</h3>
+							<br>
+							<table id = table class = "wp-table">
+									<thead>
+										
+										<tr>
+										<td><b>route code</b></td>
+										<td><b>price</b></td>
+										<td><b>doD</b></td>
+										</tr>
+										
+									</thead>
+									<tbody id = body>
+										<tr id="root"></tr>
+									</tbody>
+							</table>
+					
+						
+						</div>
+					</div>
+
+				</div>
+			</div>
+			</body>
+
+	</body>
+
+
+</html>
+
+
+
+
