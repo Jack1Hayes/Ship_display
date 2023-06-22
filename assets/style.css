@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  background-color: yellow;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  background-color: #ddd;
+}
+#header {
+  height: 10%;
+  border-bottom: 3px solid red;
+}
+h2, h3 {
+  text-align: center;
+}
+#wrap {
+height: 100%;
+position: relative;
+
+}
+.window-banner{
+position: absolute;
+margin: auto;
+left: 0px;
+right: 0px;
+}
+.window { 
+width:50%;
+position:relative;
+float:left;
+height:90%;
+
+}
+.pane { 
+width: 100%;
+position: relative;
+height: 50%;
+text-align: left;
+}
+#pane1{
+ border-bottom:1px dashed;
+}
+#window1 {
+    border-right:1px solid;
+}
+#window2 {
+border-left:1px solid;
+}
+.wrapper{
+display : inline;
+border:1px solid lightgray;
+padding:4px;
+box-shadow:inset 1px 1px 1px rgba(0,0,0,.1)
+}
+input {
+  border:0;
+}
+label {
+color : gray;
+padding:4px;
+}
+.wp-table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.wp-table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.wp-table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.wp-table th:first-child, 
+.wp-table td:first-child {
+  padding-left: 16px;
+}
+
+
+.wp-table td, 
+.wp-table th {
+  padding: 8px 8px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: top;
+}
+
+.wp-table th {
+  font-weight: bold;
+}
+
+.wp-table {
+  font-size: 13px!important;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
+  table-layout:fixed;
+  width:100%;
+
+}
+#scrollable {
+  position: absolute;
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow-y: auto;
+}
